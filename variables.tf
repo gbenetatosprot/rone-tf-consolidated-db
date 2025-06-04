@@ -5,11 +5,11 @@ variable "firewalls" {
   }))
   default = {
     fw1 = {
-      hostname = "52.203.138.190"
+      hostname = "34.230.171.201"
       username = "admin"
     },
     fw2 = {
-      hostname = "3.215.31.89"
+      hostname = "54.158.156.57"
       username = "admin"
     }
   }
