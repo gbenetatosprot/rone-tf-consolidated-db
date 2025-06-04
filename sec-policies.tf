@@ -132,6 +132,21 @@ resource "panos_security_policy" "fw2_allow_policies" {
     group                   = panos_security_profile_group.fw2_sec_profile_inbound.name
   }
 
+rule {
+    name                    = "test-adding-policies"
+    audit_comment           = "allow-internal-2"
+    source_zones            = [panos_zone.fw1_internal.name]
+    source_addresses        = ["any"]
+    source_users            = ["any"]
+    destination_zones       = [panos_zone.fw1_internal.name]
+    destination_addresses   = ["any"]
+    applications            = ["any"]
+    services                = ["application-default"]
+    categories              = ["any"]
+    action                  = "allow"
+    group                   = panos_security_profile_group.fw1_sec_profile_outbound.name
+  }
+
   lifecycle {
     create_before_destroy = true
   }
